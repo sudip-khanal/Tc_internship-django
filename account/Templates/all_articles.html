@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block content %}
+<h1>Articles</h1>
+
+<table border="1">
+  <thead>
+    <h4></h4>
+    <th>Publish Date</th>
+    <th>Headline</th>
+    <th>Content</th>
+    <th>Reporter</th>
+    <th colspan="2">Action</th>
+  </thead>
+  {% for data in articles %}
+  <tbody>
+    <td>{{ data.pub_date }}</td>
+    <td>{{ data.headline }}</td>
+    <td>{{ data.content }}</td>
+    <td>{{ data.reporter }}</td>
+    <td>
+      <a href="{% url 'delete_article' data.id  %}">Delete</a>
+    </td>
+    <td><a href="{% url 'update_article' data.id %} ">Update</a></td>
+  </tbody>
+  {% endfor %}
+</table>
+
+{% endblock content %}
