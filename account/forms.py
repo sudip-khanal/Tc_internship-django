@@ -13,3 +13,10 @@ class ArticleForm(forms.ModelForm):
         model = Article
         fields = ['pub_date', 'headline', 'content', 'reporter']
     
+class UpdateArticleForm(forms.ModelChoiceField):
+    custom_field = forms.CharField(required=False) 
+    class Meta:
+        model = Article
+        fields = ['pub_date', 'headline', 'content']
+
+  
