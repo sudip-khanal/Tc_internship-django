@@ -17,9 +17,10 @@
     <td>{{ data.content }}</td>
     <td>{{ data.reporter }}</td>
     <td>
-      <a href="{% url 'delete_article' data.id  %}">Delete</a>
+      {% comment %} <a href="{% url 'delete_article' data.id  %}">Delete</a>
     </td>
     <td><a href="{% url 'update_article' data.id %} ">Update</a></td>
+    {% endcomment %}
   </tbody>
   {% endfor %}
 </table>

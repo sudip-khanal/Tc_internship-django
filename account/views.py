@@ -9,38 +9,38 @@ from .forms import ArticleForm,ReporterForm
 #     a=Article.objects.all()
 #     print(a)
    
-def create_reporter(request):
-    if request.method == 'POST':
-        form = ReporterForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.info(request, "Reporter Created Successfully .....")
-            return redirect('get_article')
-    else:
-        form = ReporterForm()
-    return render(request, 'create_reporter.html', {'form': form})
+# def create_reporter(request):
+#     if request.method == 'POST':
+#         form = ReporterForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.info(request, "Reporter Created Successfully .....")
+#             return redirect('get_article')
+#     else:
+#         form = ReporterForm()
+#     return render(request, 'create_reporter.html', {'form': form})
 
-def create_article(request):
-    if request.method == 'POST':
-        form = ArticleForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.warning(request, "Article Created Successfully .....")
-            return redirect('get_article')
-    else:
-        form = ArticleForm()
-    return render(request, 'create_article.html', {'form': form})
+# def create_article(request):
+#     if request.method == 'POST':
+#         form = ArticleForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             messages.warning(request, "Article Created Successfully .....")
+#             return redirect('get_article')
+#     else:
+#         form = ArticleForm()
+#     return render(request, 'create_article.html', {'form': form})
 
 def get_article(request):
     articles=Article.objects.all()
     return render(request,'all_articles.html',{'articles':articles})
 
 
-def delete_article(request,pk):
-      obj = Article.objects.get(id=pk)
-      obj.delete()
-      messages.warning(request, "Article Deleted Successfully .....")
-      return redirect('get_article')
+# def delete_article(request,pk):
+#       obj = Article.objects.get(id=pk)
+#       obj.delete()
+#       messages.warning(request, "Article Deleted Successfully .....")
+#       return redirect('get_article')
 
   
 # def update_article(request,pk):
@@ -50,4 +50,14 @@ def delete_article(request,pk):
 #             form.save()
 #             messages.info(request, "Article Updated Successfully .....")
 #             return redirect('get_article')
-    
+
+
+# djnago orm
+
+# def add_article(request):
+#     Article.objects.create(pub_date='6-12-2024', headline='world cup 2024', content='Nepal vs Sirlanka', reporter='rup dai')
+#     return HttpResponse(request,"object created")
+
+# def all_article(request):
+#     all_articles = Article.objects.all()
+#     return render(request, 'all_articles.html', {'articles': all_articles})
